@@ -2,7 +2,16 @@
 	import { page } from '$app/state';
 
 	const { metatag }: Metatag = $props();
-	let { title, description, keywords = [], author, follow = true, language = 'en', og } = metatag;
+	let {
+		title,
+		description,
+		keywords = [],
+		author,
+		follow = true,
+		language = 'en',
+		og,
+		x
+	} = metatag;
 </script>
 
 <svelte:head>
@@ -75,5 +84,41 @@
 	{/if}
 	{#if og.audio.type}
 		<meta property="og:audio:type" content={og.audio.type} />
+	{/if}
+
+	<meta name="twitter:description" content={description} />
+	<meta name="twitter:title" content={title} />
+	{#if x.siteId}
+		<meta name="twitter:site:id" content={x.siteId} />
+	{/if}
+	{#if x.site}
+		<meta name="twitter:site" content={x.site} />
+	{/if}
+	{#if x.creatorId}
+		<meta name="twitter:creator:id" content={x.creatorId} />
+	{/if}
+	{#if x.creator}
+		<meta name="twitter:creator" content={x.creator} />
+	{/if}
+	{#if x.card}
+		<meta name="twitter:card" content={x.card} />
+	{/if}
+	{#if x.image.url}
+		<meta name="twitter:image" content={x.image.url} />
+	{/if}
+	{#if x.image.alt}
+		<meta name="twitter:image:alt" content={x.image.alt} />
+	{/if}
+	{#if x.player.url}
+		<meta name="twitter:player" content={x.player.url} />
+	{/if}
+	{#if x.player.width}
+		<meta name="twitter:player:width" content={x.player.width} />
+	{/if}
+	{#if x.player.height}
+		<meta name="twitter:player:height" content={x.player.height} />
+	{/if}
+	{#if x.player.stream}
+		<meta name="twitter:player:stream" content={x.player.stream} />
 	{/if}
 </svelte:head>

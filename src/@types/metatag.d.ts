@@ -24,5 +24,22 @@ type Metatag = {
 			video: OgProps;
 			audio: Omit<OgProps, 'width' | 'height'>;
 		};
+		x: {
+			siteId?: string;
+			creator?: string;
+			creatorId?: string;
+			card?: string;
+			site?: string;
+			image: {
+				url?: string;
+				alt?: string;
+			};
+			player: {
+				url?: string;
+				width?: string;
+				height?: string;
+				stream?: string;
+			};
+		};
 	};
 };
