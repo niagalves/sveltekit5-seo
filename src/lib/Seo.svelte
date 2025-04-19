@@ -10,8 +10,39 @@
 		follow = true,
 		language = 'en',
 		og,
-		x
+		x,
+		jsonLd
 	} = metatag;
+
+	const getJsonLd = () => {
+		return JSON.stringify({
+			'@context': 'https://schema.org',
+			'@type': 'WebPage',
+			name: title,
+			description: description,
+			url: page.url.href,
+			image: {
+				'@type': 'ImageObject',
+				url: jsonLd.image,
+				width: jsonLd.image.width,
+				height: jsonLd.image.height
+			},
+			author: {
+				'@type': 'Organization',
+				name: jsonLd.author.name
+			},
+			publisher: {
+				'@type': 'Organization',
+				name: jsonLd.publisher.name,
+				logo: {
+					'@type': 'ImageObject',
+					url: jsonLd.publisher.logo?.url,
+					width: jsonLd.publisher.logo?.width,
+					height: jsonLd.publisher.logo?.height
+				}
+			}
+		});
+	};
 </script>
 
 <svelte:head>
@@ -120,5 +151,9 @@
 	{/if}
 	{#if x.player.stream}
 		<meta name="twitter:player:stream" content={x.player.stream} />
+	{/if}
+
+	{#if jsonLd && jsonLd.image && jsonLd.author && jsonLd.publisher}
+		{@html `<script type="application/ld+json">${getJsonLd()}</script>`}
 	{/if}
 </svelte:head>
