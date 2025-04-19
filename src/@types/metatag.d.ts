@@ -14,12 +14,12 @@ type Metatag = {
 		author?: string;
 		follow?: boolean;
 		language?: string;
-		jsonLd: {
-			image: Omit<OgProps, 'secureUrl' | 'type'>;
-			author: {
+		jsonLd?: {
+			image?: Omit<OgProps, 'secureUrl' | 'type'>;
+			author?: {
 				name?: string;
 			};
-			publisher: {
+			publisher?: {
 				name?: string;
 				logo?: Omit<OgProps, 'secureUrl' | 'type'>;
 			};
@@ -31,20 +31,20 @@ type Metatag = {
 			image: {
 				alt?: string;
 			} & OgProps;
-			video: OgProps;
-			audio: Omit<OgProps, 'width' | 'height'>;
+			video?: OgProps;
+			audio?: Omit<OgProps, 'width' | 'height'>;
 		};
-		x: {
+		x?: {
 			siteId?: string;
 			creator?: string;
 			creatorId?: string;
 			card?: string;
 			site?: string;
-			image: {
+			image?: {
 				url?: string;
 				alt?: string;
 			};
-			player: {
+			player?: {
 				url?: string;
 				width?: string;
 				height?: string;

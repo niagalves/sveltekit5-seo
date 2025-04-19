@@ -23,22 +23,22 @@
 			url: page.url.href,
 			image: {
 				'@type': 'ImageObject',
-				url: jsonLd.image,
-				width: jsonLd.image.width,
-				height: jsonLd.image.height
+				url: jsonLd?.image?.url,
+				width: jsonLd?.image?.width,
+				height: jsonLd?.image?.height
 			},
 			author: {
 				'@type': 'Organization',
-				name: jsonLd.author.name
+				name: jsonLd?.author?.name
 			},
 			publisher: {
 				'@type': 'Organization',
-				name: jsonLd.publisher.name,
+				name: jsonLd?.publisher?.name,
 				logo: {
 					'@type': 'ImageObject',
-					url: jsonLd.publisher.logo?.url,
-					width: jsonLd.publisher.logo?.width,
-					height: jsonLd.publisher.logo?.height
+					url: jsonLd?.publisher?.logo?.url,
+					width: jsonLd?.publisher?.logo?.width,
+					height: jsonLd?.publisher?.logo?.height
 				}
 			}
 		});
@@ -90,66 +90,66 @@
 		<meta property="og:image:alt" content={og.image.alt} />
 	{/if}
 
-	{#if og.video.url}
+	{#if og.video?.url}
 		<meta property="og:video" content={og.video.url} />
 		<meta property="og:video:url" content={og.video.url} />
 	{/if}
-	{#if og.video.secureUrl}
+	{#if og.video?.secureUrl}
 		<meta property="og:video:secure_url" content={og.video.secureUrl} />
 	{/if}
-	{#if og.video.type}
+	{#if og.video?.type}
 		<meta property="og:video:type" content={og.video.type} />
 	{/if}
-	{#if og.video.width}
+	{#if og.video?.width}
 		<meta property="og:video:width" content={og.video.width} />
 	{/if}
-	{#if og.video.height}
+	{#if og.video?.height}
 		<meta property="og:video:height" content={og.video.height} />
 	{/if}
 
-	{#if og.audio.url}
+	{#if og.audio?.url}
 		<meta property="og:audio" content={og.audio.url} />
 	{/if}
-	{#if og.audio.secureUrl}
+	{#if og.audio?.secureUrl}
 		<meta property="og:audio:secure_url" content={og.audio.secureUrl} />
 	{/if}
-	{#if og.audio.type}
+	{#if og.audio?.type}
 		<meta property="og:audio:type" content={og.audio.type} />
 	{/if}
 
 	<meta name="twitter:description" content={description} />
 	<meta name="twitter:title" content={title} />
-	{#if x.siteId}
+	{#if x?.siteId}
 		<meta name="twitter:site:id" content={x.siteId} />
 	{/if}
-	{#if x.site}
+	{#if x?.site}
 		<meta name="twitter:site" content={x.site} />
 	{/if}
-	{#if x.creatorId}
+	{#if x?.creatorId}
 		<meta name="twitter:creator:id" content={x.creatorId} />
 	{/if}
-	{#if x.creator}
+	{#if x?.creator}
 		<meta name="twitter:creator" content={x.creator} />
 	{/if}
-	{#if x.card}
+	{#if x?.card}
 		<meta name="twitter:card" content={x.card} />
 	{/if}
-	{#if x.image.url}
+	{#if x?.image?.url}
 		<meta name="twitter:image" content={x.image.url} />
 	{/if}
-	{#if x.image.alt}
+	{#if x?.image?.alt}
 		<meta name="twitter:image:alt" content={x.image.alt} />
 	{/if}
-	{#if x.player.url}
+	{#if x?.player?.url}
 		<meta name="twitter:player" content={x.player.url} />
 	{/if}
-	{#if x.player.width}
+	{#if x?.player?.width}
 		<meta name="twitter:player:width" content={x.player.width} />
 	{/if}
-	{#if x.player.height}
+	{#if x?.player?.height}
 		<meta name="twitter:player:height" content={x.player.height} />
 	{/if}
-	{#if x.player.stream}
+	{#if x?.player?.stream}
 		<meta name="twitter:player:stream" content={x.player.stream} />
 	{/if}
 
