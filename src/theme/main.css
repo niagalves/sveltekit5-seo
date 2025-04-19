@@ -1,0 +1,26 @@
+@import url('https://fonts.googleapis.com/css2?family=Fira+Sans:ital,wght@0,400;0,500;0,700;1,400;1,500;1,700&display=swap');
+@import 'tailwindcss';
+
+@theme {
+	--font-fira: 'Fira Sans', sans-serif;
+	--color-primary: #1c1e22;
+	--color-secondary: #23272f;
+	--color-tertiary: #cacbce;
+	--color-quaternary: #e5e5e6;
+	--color-quinary: #f96743;
+}
+
+@layer base {
+	body {
+		@apply font-fira font-normal text-base bg-primary text-tertiary;
+	}
+
+	h1,
+	h2,
+	h3,
+	h4,
+	h5,
+	h6 {
+		@apply text-quaternary font-bold italic;
+	}
+}
